@@ -5,7 +5,7 @@ export class Navbar extends Component {
     render() {
         return (
             <div>
-                <nav className="navbar navbar-expand-lg navbar-dark  fixed-top bg-dark">
+                <nav className="navbar navbar-expand-lg navbar-dark  fixed-top bg-primary">
                     <div className="container-fluid">
                         <Link className="navbar-brand" to="#">NewsyFy</Link>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,7 +16,7 @@ export class Navbar extends Component {
                                 <li className="nav-item"> <Link className="nav-link active"  to="/general">Home</Link> </li>
                                 <li className='nav-item'><Link className='nav-link'to="/business">Business</Link></li>
                                 <li className='nav-item'><Link  className='nav-link'to="/entertainment">Entertainment</Link></li>
-                                <li className='nav-item'><Link  className='nav-link'to="/general">General</Link></li>
+                              
                                 <li className='nav-item'><Link  className='nav-link'to="/health">Health</Link></li>
                                 <li className='nav-item'><Link className='nav-link'to="/science">Science</Link></li>
                                 <li className='nav-item'><Link  className='nav-link'to="/sports">Sports</Link></li>

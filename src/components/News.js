@@ -15,18 +15,19 @@ export class News extends Component {
     country: PropTypes.string,
     pageSize: PropTypes.number,
   }
-  capitalize=(string)=>{
-    return string.charAt(0).toUpperCase()+string.slice(1);
+  
+  capitalize = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
   }
   constructor(props) {
     super(props);
-    console.log("hello this is constructor");
+
     this.state = {
       articles: [],
       loading: false,
       page: 1,
     }
-    document.title= `${this.capitalize(this.props.category)}-NewsyFy`;
+    document.title = `${this.capitalize(this.props.category)}-NewsyFy`;
   }
 
   async updateNews(PageNo) {
@@ -55,19 +56,20 @@ export class News extends Component {
     this.updateNews();
   }
   handlePrevclick = async () => {
-    this.setState({page:this.state.page-1});
+    this.setState({ page: this.state.page - 1 });
     this.updateNews();
   }
 
   handleNextclick = async () => {
-  this.setState({page:this.state.page+1});
-  this.updateNews();
+    this.setState({ page: this.state.page + 1 });
+    this.updateNews();
   }
 
   render() {
     return (
       <div className="container my-4">
-        <h1 className='text-center'style={{marginTop:"90px"}}>NewsyFy-Top  {this.capitalize(this.props.category)} Headlines </h1>
+        <h1 className='text-center' style={{ marginTop: "90px" }}>NewsyFy-Top  {this.capitalize(this.props.category)} Headlines </h1>
+        <h2 className='text-center ' style={{ marginTop: "20px" }}>Created By Arbaz Solkar</h2>
         {this.state.loading && <Spinner />}
         <div className="row">
           {!this.state.loading && this.state.articles.map((element) => {
@@ -78,8 +80,8 @@ export class News extends Component {
           })}
         </div>
         <div className="conatinet d-flex justify-content-between">
-          <button disabled={this.state.page <= 1} type="button" className="btn btn-dark " onClick={this.handlePrevclick}>&larr; Previous</button>
-          <button disabled={this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize)} type="button" className="btn btn-dark " onClick={this.handleNextclick}> Next &rarr;</button>
+          <button disabled={this.state.page <= 1} type="button" className="btn btn-primary " onClick={this.handlePrevclick}>&larr; Previous</button>
+          <button disabled={this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize)} type="button" className="btn btn-primary " onClick={this.handleNextclick}> Next &rarr;</button>
         </div>
       </div>
     )
